@@ -19,4 +19,9 @@ describe('authRouter.js', () => {
     const info = {username: "something", password: "something"}
     const bodyInfo = await request(server).post('/api/auth/register').send(info)
   })
+
+  it('should be json', async () => {
+    const res = await request(server).post('/api/auth/register');
+    expect(res.type).toBe('text/html');
+})
 })
